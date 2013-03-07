@@ -9,7 +9,8 @@
 			"Payment slip",
 			"Inpayment slip",
 			"Einzahlungsschein",
-			"ESR"
+			"ESR",
+			"PDF"
 	],
 	"minimum-stability": "dev",
     "require": {
