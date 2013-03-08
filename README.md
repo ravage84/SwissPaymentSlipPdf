@@ -1,7 +1,7 @@
 SwissPaymentSlipPdf - Swiss Payment Slips as PDFs
 =================================================
 
-[![Build Status](https://travis-ci.org/ravage84/SwissPaymentSlipPdf.png?branch=master)](https://travis-ci.org/ravage84/SwissPaymentSlipPpdf)
+[![Build Status](https://travis-ci.org/ravage84/SwissPaymentSlipPdf.png?branch=master)](https://travis-ci.org/ravage84/SwissPaymentSlipPdf)
 
 Do you need to create Swiss payment slips (called ESR) as PDF files in a project of yours?
 Then you found almost the right place, go to [SwissPaymentSlipFpdf](https://github.com/ravage84/SwissPaymentSlipFpdf) or [SwissPaymentSlipTcpdf](https://github.com/ravage84/SwissPaymentSlipTcpdf).
