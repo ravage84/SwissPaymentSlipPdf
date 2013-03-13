@@ -94,10 +94,11 @@ abstract class SwissPaymentSlipPdf
 	abstract protected function createCell($width, $height, $line,$textAlign, $fill);
 
 	/**
-	 * @param $element
+	 * @param $elementName string
+	 * @param $element array
 	 */
-	protected function writePaymentSlipLines($element) {
-
+	protected function writePaymentSlipLines($elementName, $element)
+	{
 		if (is_array($element)) {
 
 			if (isset($element['lines']) && isset($element['attributes'])) {
@@ -148,7 +149,7 @@ abstract class SwissPaymentSlipPdf
 
 		// go through all elements/element groups, write each line
 		foreach ($paymentSlip->getAllElements($formatted, $fillZeroes) as $elementName => $element) {
-			$this->writePaymentSlipLines($element);
+			$this->writePaymentSlipLines($elementName, $element);
 		}
 	}
 }
