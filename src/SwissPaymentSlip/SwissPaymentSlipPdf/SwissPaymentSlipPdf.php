@@ -10,7 +10,7 @@
  * @author Peter Siska <pesche@gridonic.ch>
  * @author Marc Würth ravage@bluewin.ch
  * @link https://github.com/sprain/class.Einzahlungsschein.php
- * @version: 0.5.0
+ * @version: 0.6.0
  */
 
 namespace SwissPaymentSlip\SwissPaymentSlipPdf;
