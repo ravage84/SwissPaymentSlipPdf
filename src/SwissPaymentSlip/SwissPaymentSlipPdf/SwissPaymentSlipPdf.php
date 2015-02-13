@@ -15,6 +15,8 @@
 
 namespace SwissPaymentSlip\SwissPaymentSlipPdf;
 
+use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
+
 /**
  * Responsible for generating standard Swiss payment Slips using FPDF as engine.
  * Layout done by utilizing SwissPaymentSlip
