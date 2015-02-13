@@ -2,9 +2,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.0/phpunit.xsd"
     forceCoversAnnotation="false"
-    verbose="false">
+    verbose="false" bootstrap="./tests/bootstrap.php">
     <testsuites>
         <testsuite name="All SwissPaymentSlipPdf tests">
+            <file>./tests/SwissPaymentSlipPdfTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
