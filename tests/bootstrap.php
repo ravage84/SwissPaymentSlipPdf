@@ -38,7 +38,7 @@ class TestablePaymentSlipPdf extends SwissPaymentSlipPdf
     {
     }
 
-    protected function createCell($width, $height, $line,$textAlign, $fill)
+    protected function createCell($width, $height, $line, $textAlign, $fill)
     {
     }
 }
