@@ -8,6 +8,7 @@
             "Inpayment slip",
             "Einzahlungsschein",
             "ESR",
+            "ES",
             "PDF"
     ],
     "minimum-stability": "dev",
