@@ -8,6 +8,11 @@
             <file>./tests/SwissPaymentSlipPdfTest.php</file>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+    </filter>
     <logging>
         <log type="coverage-html" target="report/coverage/" charset="UTF-8"/>
     </logging>
