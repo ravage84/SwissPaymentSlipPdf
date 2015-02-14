@@ -121,46 +121,54 @@ abstract class PaymentSlipPdf
      * @param string $elementName The name of the element.
      * @param array $element The element.
      * @return $this The current instance for a fluent interface.
-     * @todo Reduce complexity
-     * @todo Throw exceptions (use from SwissPaymentSlip repo)
      * @todo Consider removing the element name
      */
     protected function writePaymentSlipLines($elementName, $element)
     {
-        if (is_array($element)) {
-            if (isset($element['lines']) && isset($element['attributes'])) {
-                $lines = $element['lines'];
-                $attributes = $element['attributes'];
+        if (!is_array($element)) {
+            throw new \InvalidArgumentException('$element is not an array!');
+        }
+        if (!isset($element['lines'])) {
+            throw new \InvalidArgumentException('$element contains not "lines" key!');
+        }
+        if (!isset($element['attributes'])) {
+            throw new \InvalidArgumentException('$element contains not "attributes" key!');
+        }
+        $lines = $element['lines'];
+        $attributes = $element['attributes'];
 
-                if (is_array($lines) && is_array($attributes)) {
-                    $posX = $attributes['PosX'];
-                    $posY = $attributes['PosY'];
-                    $height = $attributes['Height'];
-                    $width = $attributes['Width'];
-                    $fontFamily = $attributes['FontFamily'];
-                    $background = $attributes['Background'];
-                    $fontSize = $attributes['FontSize'];
-                    $fontColor = $attributes['FontColor'];
-                    $lineHeight = $attributes['LineHeight'];
-                    $textAlign = $attributes['TextAlign'];
+        if (!is_array($lines)) {
+            throw new \InvalidArgumentException('$lines is not an array!');
+        }
+        if (!is_array($attributes)) {
+            throw new \InvalidArgumentException('$attributes is not an array!');
+        }
 
-                    $this->setFont($fontFamily, $fontSize, $fontColor);
-                    if ($background != 'transparent') {
-                        $this->setBackground($background);
-                        $fill = true;
-                    } else {
-                        $fill = false;
-                    }
+        $posX = $attributes['PosX'];
+        $posY = $attributes['PosY'];
+        $height = $attributes['Height'];
+        $width = $attributes['Width'];
+        $fontFamily = $attributes['FontFamily'];
+        $background = $attributes['Background'];
+        $fontSize = $attributes['FontSize'];
+        $fontColor = $attributes['FontColor'];
+        $lineHeight = $attributes['LineHeight'];
+        $textAlign = $attributes['TextAlign'];
 
-                    foreach ($lines as $lineNr => $line) {
-                        $this->setPosition(
-                            $this->paymentSlip->getSlipPosX() +$posX,
-                            $this->paymentSlip->getSlipPosY() + $posY + ($lineNr * $lineHeight)
-                        );
-                        $this->createCell($width, $height, $line, $textAlign, $fill);
-                    }
-                }
-            }
+        $this->setFont($fontFamily, $fontSize, $fontColor);
+        if ($background != 'transparent') {
+            $this->setBackground($background);
+            $fill = true;
+        } else {
+            $fill = false;
+        }
+
+        foreach ($lines as $lineNr => $line) {
+            $this->setPosition(
+                $this->paymentSlip->getSlipPosX() + $posX,
+                $this->paymentSlip->getSlipPosY() + $posY + ($lineNr * $lineHeight)
+            );
+            $this->createCell($width, $height, $line, $textAlign, $fill);
         }
 
         return $this;
