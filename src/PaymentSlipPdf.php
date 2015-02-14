@@ -92,7 +92,7 @@ abstract class PaymentSlipPdf
      * @param $fill
      * @return mixed
      */
-    abstract protected function createCell($width, $height, $line,$textAlign, $fill);
+    abstract protected function createCell($width, $height, $line, $textAlign, $fill);
 
     /**
      * @param $elementName string
@@ -127,7 +127,10 @@ abstract class PaymentSlipPdf
                     }
 
                     foreach ($lines as $lineNr => $line) {
-                        $this->setPosition($this->paymentSlip->getSlipPosX() + $posX, $this->paymentSlip->getSlipPosY() + $posY + ($lineNr * $lineHeight));
+                        $this->setPosition(
+                            $this->paymentSlip->getSlipPosX() +$posX,
+                            $this->paymentSlip->getSlipPosY() + $posY + ($lineNr * $lineHeight)
+                        );
                         $this->createCell($width, $height, $line, $textAlign, $fill);
                     }
                 }
@@ -140,7 +143,8 @@ abstract class PaymentSlipPdf
      * @param bool $fillZeroes
      * @param bool $withBackground
      */
-    public function createPaymentSlip($formatted = true, $fillZeroes = true, $withBackground = true) {
+    public function createPaymentSlip($formatted = true, $fillZeroes = true, $withBackground = true)
+    {
         $paymentSlip = $this->paymentSlip;
 
         // Place background
