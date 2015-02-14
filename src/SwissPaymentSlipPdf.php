@@ -1,16 +1,13 @@
 <?php
 /**
- * Swiss Payment Slip as PDF
+ * Swiss Payment Slip PDF
  *
- * PHP version >= 5.3.0
- *
- * @licence MIT
- * @copyright 2012-2013 Some nice Swiss guys
+ * @license http://www.opensource.org/licenses/mit-license.php MIT License
+ * @copyright 2012-2015 Some nice Swiss guys
+ * @author Marc Würth ravage@bluewin.ch
  * @author Manuel Reinhard <manu@sprain.ch>
  * @author Peter Siska <pesche@gridonic.ch>
- * @author Marc Würth ravage@bluewin.ch
- * @link https://github.com/sprain/class.Einzahlungsschein.php
- * @version: 0.6.0
+ * @link https://github.com/ravage84/SwissPaymentSlipPdf/
  */
 
 namespace SwissPaymentSlip\SwissPaymentSlipPdf;
