@@ -31,14 +31,14 @@ abstract class SwissPaymentSlipPdf
 	/**
 	 * The PDF engine object to generate the PDF output
 	 *
-	 * @var null|object The PDF engine object
+	 * @var null|object
 	 */
 	protected $pdfEngine = null;
 
 	/**
-	 * The payment slip object, which contains the payment slip data
+	 * The payment slip object, which contains the payment slip data and layout information
 	 *
-	 * @var null|SwissPaymentSlip The payment slip object
+	 * @var null|SwissPaymentSlip
 	 */
 	protected $paymentSlip = null;
 
@@ -48,18 +48,13 @@ abstract class SwissPaymentSlipPdf
 	 * @param object $pdfEngine
 	 * @param SwissPaymentSlip $paymentSlip
 	 */
-	public function __construct($pdfEngine, $paymentSlip)
+	public function __construct($pdfEngine, SwissPaymentSlip $paymentSlip)
 	{
-		if (is_object($pdfEngine)) {
-			$this->pdfEngine = $pdfEngine;
-		} else {
-			// throw error
-		}
-		if (is_object($paymentSlip)) {
-			$this->paymentSlip = $paymentSlip;
-		} else {
-			// throw error
-		}
+		if (!is_object($pdfEngine)) {
+            throw new \InvalidArgumentException('$pdfEngine is not an object!');
+        }
+        $this->pdfEngine = $pdfEngine;
+        $this->paymentSlip = $paymentSlip;
 	}
 
 	/**
