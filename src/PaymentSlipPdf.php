@@ -101,7 +101,6 @@ abstract class PaymentSlipPdf
     protected function writePaymentSlipLines($elementName, $element)
     {
         if (is_array($element)) {
-
             if (isset($element['lines']) && isset($element['attributes'])) {
                 $lines = $element['lines'];
                 $attributes = $element['attributes'];
