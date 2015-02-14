@@ -5,7 +5,7 @@
     verbose="false" bootstrap="./tests/bootstrap.php">
     <testsuites>
         <testsuite name="All SwissPaymentSlipPdf tests">
-            <file>./tests/SwissPaymentSlipPdfTest.php</file>
+            <file>./tests/PaymentSlipPdfTest.php</file>
         </testsuite>
     </testsuites>
     <filter>

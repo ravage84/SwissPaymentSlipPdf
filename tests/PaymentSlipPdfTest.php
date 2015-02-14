@@ -19,9 +19,9 @@ use SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf;
 /**
  * Tests for the OrangePaymentSlipPdf class
  *
- * @coversDefaultClass SwissPaymentSlip\SwissPaymentSlipPdf\SwissPaymentSlipPdf
+ * @coversDefaultClass SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf
  */
-class SwissPaymentSlipTest extends \PHPUnit_Framework_TestCase
+class PaymentSlipTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests the constructor with an invalid PDF engine object

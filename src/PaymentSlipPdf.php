@@ -26,7 +26,7 @@ use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
  * @link https://github.com/ravage84/SwissPaymentSlipTcpdf/ SwissPaymentSlipTcpdf
  * @link https://github.com/ravage84/SwissPaymentSlipFpdf/ SwissPaymentSlipFpdf
  */
-abstract class SwissPaymentSlipPdf
+abstract class PaymentSlipPdf
 {
 	/**
 	 * The PDF engine object to generate the PDF output

@@ -37,7 +37,7 @@ class TestablePaymentSlip extends SwissPaymentSlip
 }
 
 /**
- * A wrapping class to allow testing the abstract class SwissPaymentSlipPdf
+ * A wrapping class to allow testing the abstract class PaymentSlipPdf
  */
 class TestablePaymentSlipPdf extends PaymentSlipPdf
 {
