@@ -25,8 +25,6 @@ use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
  * @link https://github.com/ravage84/SwissPaymentSlip/ SwissPaymentSlip
  * @link https://github.com/ravage84/SwissPaymentSlipTcpdf/ SwissPaymentSlipTcpdf
  * @link https://github.com/ravage84/SwissPaymentSlipFpdf/ SwissPaymentSlipFpdf
- *
- * @todo Implement a fluent interface, note in @return annotations
  */
 abstract class PaymentSlipPdf
 {
@@ -66,7 +64,7 @@ abstract class PaymentSlipPdf
      * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
      *
      * @param string $background The background image path.
-     * @return mixed
+     * @return $this The current instance for a fluent interface.
      */
     abstract protected function displayImage($background);
 
@@ -78,7 +76,7 @@ abstract class PaymentSlipPdf
      * @param string $fontFamily The font family
      * @param int|float $fontSize The font size.
      * @param string $fontColor The font color. Either the name of the color or its RGB hex code.
-     * @return mixed
+     * @return $this The current instance for a fluent interface.
      */
     abstract protected function setFont($fontFamily, $fontSize, $fontColor);
 
@@ -88,7 +86,7 @@ abstract class PaymentSlipPdf
      * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
      *
      * @param $background
-     * @return mixed
+     * @return $this The current instance for a fluent interface.
      */
     abstract protected function setBackground($background);
 
@@ -99,7 +97,7 @@ abstract class PaymentSlipPdf
      *
      * @param int|float $posX The X position.
      * @param int|float $posY The Y position.
-     * @return mixed
+     * @return $this The current instance for a fluent interface.
      */
     abstract protected function setPosition($posX, $posY);
 
@@ -113,7 +111,7 @@ abstract class PaymentSlipPdf
      * @param string $line The text/content of the line.
      * @param string $textAlign The text alignment.
      * @param bool $fill Whether to fill the background of the cell.
-     * @return mixed
+     * @return $this The current instance for a fluent interface.
      */
     abstract protected function createCell($width, $height, $line, $textAlign, $fill);
 
@@ -122,7 +120,7 @@ abstract class PaymentSlipPdf
      *
      * @param string $elementName The name of the element.
      * @param array $element The element.
-     * @return void
+     * @return $this The current instance for a fluent interface.
      * @todo Reduce complexity
      * @todo Throw exceptions (use from SwissPaymentSlip repo)
      * @todo Consider removing the element name
@@ -164,6 +162,8 @@ abstract class PaymentSlipPdf
                 }
             }
         }
+
+        return $this;
     }
 
     /**
@@ -172,6 +172,7 @@ abstract class PaymentSlipPdf
      * @param bool $formatted Whether to format the reference number.
      * @param bool $fillZeroes Whether to fill the code line with zeros.
      * @param bool $withBackground Whether to display the background image.
+     * @return $this The current instance for a fluent interface.
      */
     public function createPaymentSlip($formatted = true, $fillZeroes = true, $withBackground = true)
     {
@@ -188,5 +189,7 @@ abstract class PaymentSlipPdf
         foreach ($elements as $elementName => $element) {
             $this->writePaymentSlipLines($elementName, $element);
         }
+
+        return $this;
     }
 }
