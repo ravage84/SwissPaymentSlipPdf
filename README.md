@@ -1,7 +1,12 @@
 SwissPaymentSlipPdf - Swiss Payment Slips as PDFs
 =================================================
 
-[![Build Status](https://travis-ci.org/ravage84/SwissPaymentSlipPdf.png?branch=master)](https://travis-ci.org/ravage84/SwissPaymentSlipPdf)
+[![Travis Build Status](https://travis-ci.org/ravage84/SwissPaymentSlipPdf.png?branch=master)](https://travis-ci.org/ravage84/SwissPaymentSlipPdf)
+[![Scrutinizer CI Build Status](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/build-status/master)
+[![Scrutinizer CI Code Coverage](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/?branch=master)
+[![Scrutinizer CI Code Quality](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ravage84/SwissPaymentSlipPdf/?branch=master)
+[![Total Downloads](https://poser.pugx.org/swiss-payment-slip/swiss-payment-slip-pdf/d/total.png)](https://packagist.org/packages/swiss-payment-slip/swiss-payment-slip-pdf)
+[![Latest Stable Version](https://poser.pugx.org/swiss-payment-slip/swiss-payment-slip-pdf/v/stable.png)](https://packagist.org/packages/swiss-payment-slip/swiss-payment-slip-pdf)
 
 Do you need to create Swiss payment slips (called ES or ESR) as PDF files in a project of yours?
 Then you found almost the right place, go to [SwissPaymentSlipFpdf](https://github.com/ravage84/SwissPaymentSlipFpdf)
