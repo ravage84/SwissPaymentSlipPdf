@@ -18,9 +18,16 @@ namespace SwissPaymentSlip\SwissPaymentSlipPdf;
 use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
 
 /**
- * Responsible for generating standard Swiss payment Slips using FPDF as engine.
- * Layout done by utilizing SwissPaymentSlip
- * Data organisation through SwissPaymentSlipData
+ * An abstract base class for concrete implementations for creating Swiss payment slips as PDFs
+ *
+ * Responsible for generating standard Swiss payment Slips
+ * using a PDF engine, e.g. FPDF or TCPDF.
+ * Layout done by utilizing PaymentSlip and
+ * data organisation through PaymentSlipData.
+ *
+ * @link https://github.com/ravage84/SwissPaymentSlip/ SwissPaymentSlip
+ * @link https://github.com/ravage84/SwissPaymentSlipTcpdf/ SwissPaymentSlipTcpdf
+ * @link https://github.com/ravage84/SwissPaymentSlipFpdf/ SwissPaymentSlipFpdf
  */
 abstract class SwissPaymentSlipPdf
 {
