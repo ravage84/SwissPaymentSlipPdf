@@ -12,15 +12,34 @@
 
 namespace SwissPaymentSlip\SwissPaymentSlipPdf\Tests;
 
-use SwissPaymentSlip\SwissPaymentSlipPdf\SwissPaymentSlipPdf;
+use SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf;
+use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
+use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlipData;
 
 // Include Composer's autoloader
 require __DIR__.'/../vendor/autoload.php';
 
 /**
+ * A wrapping class to allow testing the abstract class PaymentSlipData
+ */
+class TestablePaymentSlipData extends SwissPaymentSlipData
+{
+    public function getCodeLine($fillZeros = true)
+    {
+    }
+}
+
+/**
+ * A wrapping class to allow testing the abstract class PaymentSlip
+ */
+class TestablePaymentSlip extends SwissPaymentSlip
+{
+}
+
+/**
  * A wrapping class to allow testing the abstract class SwissPaymentSlipPdf
  */
-class TestablePaymentSlipPdf extends SwissPaymentSlipPdf
+class TestablePaymentSlipPdf extends PaymentSlipPdf
 {
     protected function displayImage($background)
     {
