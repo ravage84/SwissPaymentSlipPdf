@@ -25,6 +25,8 @@ use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
  * @link https://github.com/ravage84/SwissPaymentSlip/ SwissPaymentSlip
  * @link https://github.com/ravage84/SwissPaymentSlipTcpdf/ SwissPaymentSlipTcpdf
  * @link https://github.com/ravage84/SwissPaymentSlipFpdf/ SwissPaymentSlipFpdf
+ *
+ * @todo Implement a fluent interface, note in @return annotations
  */
 abstract class PaymentSlipPdf
 {
@@ -43,10 +45,11 @@ abstract class PaymentSlipPdf
     protected $paymentSlip = null;
 
     /**
+     * Create a new object to create Swiss payment slips as PDFs
      *
-     *
-     * @param object $pdfEngine
-     * @param SwissPaymentSlip $paymentSlip
+     * @param object $pdfEngine The PDF engine object to generate the PDF output.
+     * @param SwissPaymentSlip $paymentSlip The payment slip object,
+     * which contains the payment slip data and layout information.
      */
     public function __construct($pdfEngine, SwissPaymentSlip $paymentSlip)
     {
@@ -58,45 +61,71 @@ abstract class PaymentSlipPdf
     }
 
     /**
-     * @param $background
+     * Display a background image
+     *
+     * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
+     *
+     * @param string $background The background image path.
      * @return mixed
      */
     abstract protected function displayImage($background);
 
     /**
-     * @param $fontFamily
-     * @param $fontSize
-     * @param $fontColor
+     * Set the font of an element
+     *
+     * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
+     *
+     * @param string $fontFamily The font family
+     * @param int|float $fontSize The font size.
+     * @param string $fontColor The font color. Either the name of the color or its RGB hex code.
      * @return mixed
      */
     abstract protected function setFont($fontFamily, $fontSize, $fontColor);
 
     /**
+     * Set the background of an element
+     *
+     * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
+     *
      * @param $background
      * @return mixed
      */
     abstract protected function setBackground($background);
 
     /**
-     * @param $posX
-     * @param $posY
+     * Set the position of an element
+     *
+     * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
+     *
+     * @param int|float $posX The X position.
+     * @param int|float $posY The Y position.
      * @return mixed
      */
     abstract protected function setPosition($posX, $posY);
 
     /**
-     * @param $width
-     * @param $height
-     * @param $line
-     * @param $textAlign
-     * @param $fill
+     * Create the element cell using the PDF engine
+     *
+     * Implement this method by using the parameter(s) with he appropriate method of the PDF engine.
+     *
+     * @param int|float $width The width.
+     * @param int|float $height The height.
+     * @param string $line The text/content of the line.
+     * @param string $textAlign The text alignment.
+     * @param bool $fill Whether to fill the background of the cell.
      * @return mixed
      */
     abstract protected function createCell($width, $height, $line, $textAlign, $fill);
 
     /**
-     * @param $elementName string
-     * @param $element array
+     * Write the lines of an element to the PDf
+     *
+     * @param string $elementName The name of the element.
+     * @param array $element The element.
+     * @return void
+     * @todo Reduce complexity
+     * @todo Throw exceptions (use from SwissPaymentSlip repo)
+     * @todo Consider removing the element name
      */
     protected function writePaymentSlipLines($elementName, $element)
     {
@@ -138,21 +167,25 @@ abstract class PaymentSlipPdf
     }
 
     /**
-     * @param bool $formatted
-     * @param bool $fillZeroes
-     * @param bool $withBackground
+     * Create a payment slip as a PDF using the PDF engine
+     *
+     * @param bool $formatted Whether to format the reference number.
+     * @param bool $fillZeroes Whether to fill the code line with zeros.
+     * @param bool $withBackground Whether to display the background image.
      */
     public function createPaymentSlip($formatted = true, $fillZeroes = true, $withBackground = true)
     {
         $paymentSlip = $this->paymentSlip;
 
-        // Place background
+        // Place background image
         if ($withBackground) {
             $this->displayImage($paymentSlip->getSlipBackground());
         }
 
-        // go through all elements/element groups, write each line
-        foreach ($paymentSlip->getAllElements($formatted, $fillZeroes) as $elementName => $element) {
+        $elements = $paymentSlip->getAllElements($formatted, $fillZeroes);
+
+        // Go through all elements, write each line
+        foreach ($elements as $elementName => $element) {
             $this->writePaymentSlipLines($elementName, $element);
         }
     }
