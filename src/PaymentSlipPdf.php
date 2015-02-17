@@ -180,6 +180,7 @@ abstract class PaymentSlipPdf
      * @param bool $fillZeroes Whether to fill the code line with zeros.
      * @param bool $withBackground Whether to display the background image.
      * @return $this The current instance for a fluent interface.
+     * @todo Consider moving both parameters down to PaymentSlip as settable settings instead of parameters
      */
     public function createPaymentSlip($fillZeroes = true, $withBackground = true)
     {
