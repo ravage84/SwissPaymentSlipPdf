@@ -42,6 +42,9 @@ $paymentSlip = new SwissPaymentSlip($slipData);
 // Create an object of our example implementation using the pseudo PDF engine and the payment slip
 $paymentSlipPdf = new ExamplePaymentSlipPdf($pseudoPdfEngine, $paymentSlip);
 
+// Create a payment slip (if there was a real PDF engine)
+$paymentSlipPdf->createPaymentSlip();
+
 // Dump object to screen
 echo "This is how your slip object looks now: <br>";
 var_dump($paymentSlipPdf);
