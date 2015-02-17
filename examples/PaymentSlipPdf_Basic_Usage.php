@@ -46,7 +46,7 @@ $paymentSlipPdf = new ExamplePaymentSlipPdf($pseudoPdfEngine, $paymentSlip);
 $paymentSlipPdf->createPaymentSlip();
 
 // Dump object to screen
-echo "This is how your slip object looks now: <br>";
+echo "This is how your payment slip pdf object looks now: <br>";
 var_dump($paymentSlipPdf);
 ?>
 </body>
