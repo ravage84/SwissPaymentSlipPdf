@@ -19,7 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Testing with newer PHP versions and  HHVM in Travis CI
 - A .gitattributes
 - Packagist Download & Latest badges to the README
-- PHPCS 2.1.* as developer dependency
+- PHPCS 2.1.* as development dependency
 - Setup some tests
 
 ### Changed
