@@ -2,12 +2,19 @@
 All notable changes to this project are documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.8.0...master)
+## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.9.0...master)
 ### Added
 
 ### Changed
 
 ### Fixed
+
+## [0.9.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.9.0) - 2015-02-17
+### Changed
+- Updated the swiss-payment-slip/swiss-payment-slip dependency to version 0.8.0 (API breaking)
+- Removed the $formatted parameter from PaymentSlipPdf::createPaymentSlip() (API breaking)  
+  This removes the possibility to decide whether the reference number of the orange payment slip gets formatted or not.
+  This functionality must be reimplemented in PaymentSlip somehow.
 
 ## [0.8.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.8.0) - 2015-02-17
 ### Changed
