@@ -177,12 +177,11 @@ abstract class PaymentSlipPdf
     /**
      * Create a payment slip as a PDF using the PDF engine
      *
-     * @param bool $formatted Whether to format the reference number.
      * @param bool $fillZeroes Whether to fill the code line with zeros.
      * @param bool $withBackground Whether to display the background image.
      * @return $this The current instance for a fluent interface.
      */
-    public function createPaymentSlip($formatted = true, $fillZeroes = true, $withBackground = true)
+    public function createPaymentSlip($fillZeroes = true, $withBackground = true)
     {
         $paymentSlip = $this->paymentSlip;
 
@@ -191,7 +190,7 @@ abstract class PaymentSlipPdf
             $this->displayImage($paymentSlip->getSlipBackground());
         }
 
-        $elements = $paymentSlip->getAllElements($formatted, $fillZeroes);
+        $elements = $paymentSlip->getAllElements($fillZeroes);
 
         // Go through all elements, write each line
         foreach ($elements as $elementName => $element) {
