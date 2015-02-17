@@ -12,7 +12,7 @@
 
 namespace SwissPaymentSlip\SwissPaymentSlipPdf;
 
-use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
+use SwissPaymentSlip\SwissPaymentSlip\PaymentSlip;
 
 /**
  * An abstract base class for concrete implementations for creating Swiss payment slips as PDFs
@@ -38,7 +38,7 @@ abstract class PaymentSlipPdf
     /**
      * The payment slip object, which contains the payment slip data and layout information
      *
-     * @var null|SwissPaymentSlip
+     * @var null|PaymentSlip
      */
     protected $paymentSlip = null;
 
@@ -46,10 +46,10 @@ abstract class PaymentSlipPdf
      * Create a new object to create Swiss payment slips as PDFs
      *
      * @param object $pdfEngine The PDF engine object to generate the PDF output.
-     * @param SwissPaymentSlip $paymentSlip The payment slip object,
+     * @param PaymentSlip $paymentSlip The payment slip object,
      * which contains the payment slip data and layout information.
      */
-    public function __construct($pdfEngine, SwissPaymentSlip $paymentSlip)
+    public function __construct($pdfEngine, PaymentSlip $paymentSlip)
     {
         if (!is_object($pdfEngine)) {
             throw new \InvalidArgumentException('$pdfEngine is not an object!');

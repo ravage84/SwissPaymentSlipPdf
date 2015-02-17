@@ -13,8 +13,8 @@
 namespace SwissPaymentSlip\SwissPaymentSlipPdf\Tests;
 
 use SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf;
-use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip;
-use SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlipData;
+use SwissPaymentSlip\SwissPaymentSlip\PaymentSlip;
+use SwissPaymentSlip\SwissPaymentSlip\PaymentSlipData;
 
 // Include Composer's autoloader
 require __DIR__.'/../vendor/autoload.php';
@@ -22,7 +22,7 @@ require __DIR__.'/../vendor/autoload.php';
 /**
  * A wrapping class to allow testing the abstract class PaymentSlipData
  */
-class TestablePaymentSlipData extends SwissPaymentSlipData
+class TestablePaymentSlipData extends PaymentSlipData
 {
     public function getCodeLine($fillZeros = true)
     {
@@ -32,7 +32,7 @@ class TestablePaymentSlipData extends SwissPaymentSlipData
 /**
  * A wrapping class to allow testing the abstract class PaymentSlip
  */
-class TestablePaymentSlip extends SwissPaymentSlip
+class TestablePaymentSlip extends PaymentSlip
 {
 }
 

@@ -43,7 +43,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      * @expectedException \PHPUnit_Framework_Error
-     * @expectedExceptionMessage Argument 2 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::__construct() must be an instance of SwissPaymentSlip\SwissPaymentSlip\SwissPaymentSlip, instance of stdClass given
+     * @expectedExceptionMessage Argument 2 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::__construct() must be an instance of SwissPaymentSlip\SwissPaymentSlip\PaymentSlip, instance of stdClass given
      * @covers ::__construct
      */
     public function testConstructorInvalidPaymentSlip()
