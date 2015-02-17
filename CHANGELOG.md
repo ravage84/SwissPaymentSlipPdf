@@ -2,12 +2,18 @@
 All notable changes to this project are documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.9.0...master)
+## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.10.0...master)
 ### Added
 
 ### Changed
 
 ### Fixed
+
+## [0.10.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.10.0) - 2015-02-17
+### Changed
+- Updated the swiss-payment-slip/swiss-payment-slip dependency to version 0.9.0 (API compatible)
+  This could lead to exceptions thrown, if you have disabled one or more element data
+  but haven't disabled the display of them.
 
 ## [0.9.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.9.0) - 2015-02-17
 ### Changed
