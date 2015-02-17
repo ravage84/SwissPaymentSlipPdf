@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1da6b63938c0abf08038c1a729dfd1b8",
+    "hash": "d5c88a3a5063d9bc5e8d8200781d4ee6",
     "packages": [
         {
             "name": "swiss-payment-slip/swiss-payment-slip",
-            "version": "0.7.0",
+            "version": "0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ravage84/SwissPaymentSlip.git",
-                "reference": "c6fd681bf02f9c57f1738a6d852b52dcaa9138e8"
+                "reference": "8c2ddca4e7dfc568a7f1cfdf25a748192ebca16e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/c6fd681bf02f9c57f1738a6d852b52dcaa9138e8",
-                "reference": "c6fd681bf02f9c57f1738a6d852b52dcaa9138e8",
+                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/8c2ddca4e7dfc568a7f1cfdf25a748192ebca16e",
+                "reference": "8c2ddca4e7dfc568a7f1cfdf25a748192ebca16e",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                     "role": "Lead developer"
                 }
             ],
-            "description": "A class to create Swiss payment slips with reference number (ESR)",
+            "description": "A library for creating Swiss payment slips",
             "homepage": "https://github.com/ravage84/SwissPaymentSlip",
             "keywords": [
                 "ESR",
@@ -65,7 +65,7 @@
                 "Payment slip",
                 "es"
             ],
-            "time": "2013-09-16 00:00:00"
+            "time": "2015-02-12 17:25:46"
         }
     ],
     "packages-dev": [
