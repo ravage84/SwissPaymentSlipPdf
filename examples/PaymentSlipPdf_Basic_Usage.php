@@ -26,18 +26,18 @@ require __DIR__.'/../vendor/autoload.php';
 require __DIR__. '/Resources/ExamplePaymentSlipPdf.php';
 
 // Import necessary classes
-use SwissPaymentSlip\SwissPaymentSlip\PaymentSlipData;
-use SwissPaymentSlip\SwissPaymentSlip\PaymentSlip;
+use SwissPaymentSlip\SwissPaymentSlip\OrangePaymentSlipData;
+use SwissPaymentSlip\SwissPaymentSlip\OrangePaymentSlip;
 use SwissPaymentSlip\SwissPaymentSlipPdf\Examples\ExamplePaymentSlipPdf;
 
 // Create a pseudo PDF engine, because we have none at hand right now
 $pseudoPdfEngine = (object)'Not a real PDF engine';
 
 // Create a payment slip data container, which could bef filled with the actual data
-$slipData = new PaymentSlipData();
+$slipData = new OrangePaymentSlipData();
 
 // Create a payment slip, which contains the layout information, using the payment slip data container
-$paymentSlip = new PaymentSlip($slipData);
+$paymentSlip = new OrangePaymentSlip($slipData);
 
 // Create an object of our example implementation using the pseudo PDF engine and the payment slip
 $paymentSlipPdf = new ExamplePaymentSlipPdf($pseudoPdfEngine, $paymentSlip);
