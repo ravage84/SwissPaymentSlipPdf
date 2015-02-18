@@ -39,11 +39,12 @@ $slipData = new OrangePaymentSlipData();
 // Create a payment slip, which contains the layout information, using the payment slip data container
 $paymentSlip = new OrangePaymentSlip($slipData);
 
-// Create an object of our example implementation using the pseudo PDF engine and the payment slip
-$paymentSlipPdf = new ExamplePaymentSlipPdf($pseudoPdfEngine, $paymentSlip);
+// Create an object of our example implementation using the pseudo PDF engine
+$paymentSlipPdf = new ExamplePaymentSlipPdf($pseudoPdfEngine);
 
-// Create a payment slip (if there was a real PDF engine)
-$paymentSlipPdf->createPaymentSlip();
+// Create the payment slip (if there was a real PDF engine)
+echo 'Some data dump while "creating" the payment slip: <br>';
+$paymentSlipPdf->createPaymentSlip($paymentSlip);
 
 // Dump object to screen
 echo "This is how your payment slip pdf object looks now: <br>";
