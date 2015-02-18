@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Exclude development/testing only related stuff from the Composer package
 
 ### Fixed
 
