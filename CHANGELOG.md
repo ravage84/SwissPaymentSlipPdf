@@ -2,8 +2,16 @@
 All notable changes to this project are documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.12.0...master)
+## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.13.0...master)
 ### Added
+
+### Changed
+
+### Fixed
+
+## [0.13.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.13.0) - 2015-02-18
+### Added
+- More tests
 
 ### Changed
 - Moved the $paymentSlip parameter from the constructor to the createPaymentSlip method (API breaking)
@@ -12,8 +20,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   The object is still not fully non stateful but the state (the payment slip reference)
   gets unset after creating the payment slip as PDF.
 - Improved the example by making a data dump while processing the payment slip to showcase the functionality
-
-### Fixed
 
 ## [0.12.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.12.0) - 2015-02-18
 ### Changed
@@ -35,7 +41,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.9.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.9.0) - 2015-02-17
 ### Changed
 - Updated the swiss-payment-slip/swiss-payment-slip dependency to version 0.8.0 (API breaking)
-- Removed the $formatted parameter from PaymentSlipPdf::createPaymentSlip() (API breaking)  
+- Removed the $formatted parameter from PaymentSlipPdf::createPaymentSlip() (API breaking)
   This removes the possibility to decide whether the reference number of the orange payment slip gets formatted or not.
   This functionality must be reimplemented in PaymentSlip somehow.
 
