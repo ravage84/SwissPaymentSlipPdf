@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Moved the $paymentSlip parameter from the constructor to the createPaymentSlip method (API breaking)
+  This way one can create a reusable PaymentSlipPdf object instead of recreating one
+  each time he/she wants to create a payment slip as PDF.
+  The object is still not fully non stateful but the state (the payment slip reference)
+  gets unset after creating the payment slip as PDF.
+- Improved the example by making a data dump while processing the payment slip to showcase the functionality
 
 ### Fixed
 
