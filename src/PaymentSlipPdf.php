@@ -46,16 +46,14 @@ abstract class PaymentSlipPdf
      * Create a new object to create Swiss payment slips as PDFs
      *
      * @param object $pdfEngine The PDF engine object to generate the PDF output.
-     * @param PaymentSlip $paymentSlip The payment slip object,
      * which contains the payment slip data and layout information.
      */
-    public function __construct($pdfEngine, PaymentSlip $paymentSlip)
+    public function __construct($pdfEngine)
     {
         if (!is_object($pdfEngine)) {
             throw new \InvalidArgumentException('$pdfEngine is not an object!');
         }
         $this->pdfEngine = $pdfEngine;
-        $this->paymentSlip = $paymentSlip;
     }
 
     /**
@@ -177,11 +175,12 @@ abstract class PaymentSlipPdf
     /**
      * Create a payment slip as a PDF using the PDF engine
      *
+     * @param PaymentSlip $paymentSlip The payment slip to create as PDF.
      * @return $this The current instance for a fluent interface.
      */
-    public function createPaymentSlip()
+    public function createPaymentSlip(PaymentSlip $paymentSlip)
     {
-        $paymentSlip = $this->paymentSlip;
+        $this->paymentSlip = $paymentSlip;
 
         // Place background image
         if ($paymentSlip->getDisplayBackground()) {
@@ -194,6 +193,8 @@ abstract class PaymentSlipPdf
         foreach ($elements as $elementName => $element) {
             $this->writePaymentSlipLines($elementName, $element);
         }
+
+        $this->paymentSlip = null;
 
         return $this;
     }

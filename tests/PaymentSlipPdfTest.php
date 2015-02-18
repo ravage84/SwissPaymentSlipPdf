@@ -33,22 +33,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructorInvalidPdfEngine()
     {
-        $slipData = new TestablePaymentSlipData();
-        $paymentSlip = new TestablePaymentSlip($slipData);
-        new TestablePaymentSlipPdf('FooBar', $paymentSlip);
-    }
-
-    /**
-     * Tests the constructor with an invalid payment slip object
-     *
-     * @return void
-     * @expectedException \PHPUnit_Framework_Error
-     * @expectedExceptionMessage Argument 2 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::__construct() must be an instance of SwissPaymentSlip\SwissPaymentSlip\PaymentSlip, instance of stdClass given
-     * @covers ::__construct
-     */
-    public function testConstructorInvalidPaymentSlip()
-    {
-        new TestablePaymentSlipPdf((object)'FooBar', (object)'');
+        new TestablePaymentSlipPdf('FooBar');
     }
 
     /**
