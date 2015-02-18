@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9410404c77c71ad6e2d7d71d6826de80",
+    "hash": "fce0786af5209d8009d1f35fcdb7806f",
     "packages": [
         {
             "name": "swiss-payment-slip/swiss-payment-slip",
-            "version": "0.11.0",
+            "version": "0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ravage84/SwissPaymentSlip.git",
-                "reference": "1a238bca0bd28e90fd5d1dd8f10f6a68367f8d1d"
+                "reference": "a30d5b62db1a8f7048e63302bf639f64a4e9790a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/1a238bca0bd28e90fd5d1dd8f10f6a68367f8d1d",
-                "reference": "1a238bca0bd28e90fd5d1dd8f10f6a68367f8d1d",
+                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/a30d5b62db1a8f7048e63302bf639f64a4e9790a",
+                "reference": "a30d5b62db1a8f7048e63302bf639f64a4e9790a",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                 "Payment slip",
                 "es"
             ],
-            "time": "2015-02-18 01:14:30"
+            "time": "2015-02-18 19:51:56"
         }
     ],
     "packages-dev": [

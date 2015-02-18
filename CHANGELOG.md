@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Updated the swiss-payment-slip/swiss-payment-slip dependency to version 0.11.1 (API compatible)
 - Exclude development/testing only related stuff from the Composer package
 
 ### Fixed
