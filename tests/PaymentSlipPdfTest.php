@@ -62,7 +62,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests the createPaymentSlip method with a valid payment slip
+     * Tests the createPaymentSlip method
      *
      * @return void
      * @covers ::createPaymentSlip
@@ -75,7 +75,32 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
             array((object)'FooBar')
         );
 
+        // $paymentSLip property should not be set
+        $this->assertAttributeEquals(null, 'paymentSlip', $paymentSlipPdf);
+
         // Setup expectations
+        $expectedElements = array(
+            'bankLeft',
+            'bankRight',
+            'recipientLeft',
+            'recipientRight',
+            'accountLeft',
+            'accountRight',
+            'amountFrancsLeft',
+            'amountFrancsRight',
+            'amountCentsLeft',
+            'amountCentsRight',
+            'payerLeft',
+            'payerRight',
+        );
+        foreach ($expectedElements as $elementNr => $elementName) {
+            $paymentSlipPdf->expects($this->at($elementNr + 1))
+                ->method('writePaymentSlipLines')
+                ->with(
+                    $elementName,
+                    $this->anything()
+                );
+        }
         $paymentSlipPdf->expects($this->exactly(12))
             ->method('writePaymentSlipLines')
             ->will($this->returnSelf());
@@ -85,6 +110,38 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
 
         $slipData = new TestablePaymentSlipData();
         $paymentSlip = new TestablePaymentSlip($slipData);
+        $paymentSlipPdf->createPaymentSlip($paymentSlip);
+
+        // $paymentSLip property should be null again
+        $this->assertAttributeEquals(null, 'paymentSlip', $paymentSlipPdf);
+    }
+
+    /**
+     * Tests the createPaymentSlip method when no background image is displayed
+     *
+     * @return void
+     * @covers ::createPaymentSlip
+     */
+    public function testCreatePaymentSlipNoBackground()
+    {
+        $paymentSlipPdf = $this->getMock(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            array('writePaymentSlipLines', 'displayImage'),
+            array((object)'FooBar')
+        );
+
+        // Setup expectations
+        // Twelve elements
+        $paymentSlipPdf->expects($this->exactly(12))
+            ->method('writePaymentSlipLines')
+            ->will($this->returnSelf());
+        $paymentSlipPdf->expects($this->never())
+            ->method('displayImage')
+            ->will($this->returnSelf());
+
+        $slipData = new TestablePaymentSlipData();
+        $paymentSlip = new TestablePaymentSlip($slipData);
+        $paymentSlip->setDisplayBackground(false);
         $paymentSlipPdf->createPaymentSlip($paymentSlip);
     }
 
@@ -103,6 +160,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         );
 
         // Setup expectations
+        // Twelve elements, some elements with more than one line
         $paymentSlipPdf->expects($this->exactly(12))
             ->method('setFont');
         $paymentSlipPdf->expects($this->exactly(0))
@@ -115,5 +173,184 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         $slipData = new TestablePaymentSlipData();
         $paymentSlip = new TestablePaymentSlip($slipData);
         $paymentSlipPdf->createPaymentSlip($paymentSlip);
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with an element that has a background set
+     *
+     * @return void
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesElementWithBackground()
+    {
+        $paymentSlipPdf = $this->getMock(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            array('setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'),
+            array((object)'FooBar')
+        );
+
+        // Setup expectations
+        $paymentSlipPdf->expects($this->exactly(12))
+            ->method('setFont');
+        $paymentSlipPdf->expects($this->exactly(1))
+            ->method('setBackground')
+            ->with($this->equalTo('#AABBCC'));
+        $paymentSlipPdf->expects($this->exactly(26))
+            ->method('setPosition');
+        $paymentSlipPdf->expects($this->exactly(26))
+            ->method('createCell');
+
+        $slipData = new TestablePaymentSlipData();
+        $paymentSlip = new TestablePaymentSlip($slipData);
+        $paymentSlip->setBankLeftAttr(null, null, null, null, '#AABBCC');
+        $paymentSlipPdf->createPaymentSlip($paymentSlip);
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with an invalid first parameter
+     *
+     * @return void
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $elementName is not a string!
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesInvalidFirstParameter()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            array(),
+            array()
+        );
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with an invalid second parameter
+     *
+     * @return void
+     * @expectedException \PHPUnit_Framework_Error
+     * @expectedExceptionMessage Argument 2 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::writePaymentSlipLines() must be of the type array, string given
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesInvalidSecondParameter()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            'elementName',
+            'notAnArray'
+        );
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with no 'lines' key
+     *
+     * @return void
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $element contains not "lines" key!
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesNoLinesKey()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            'elementName',
+            array(
+                'attributes' => array()
+            )
+        );
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with no 'attributes' key
+     *
+     * @return void
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $element contains not "attributes" key!
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesNoAttributesKey()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            'elementName',
+            array(
+                'lines' => array()
+            )
+        );
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with 'lines' key being no array
+     *
+     * @return void
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $lines is not an array!
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesLinesKeyNoArray()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            'elementName',
+            array(
+                'lines' => 'notAnArray',
+                'attributes' => array()
+            )
+        );
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method with 'attributes' key being no array
+     *
+     * @return void
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage $attributes is not an array!
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLinesAttributesKeyNoArray()
+    {
+        $method = $this->makeMethodAccessible(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            'writePaymentSlipLines'
+        );
+        $method->invoke(
+            $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
+            'elementName',
+            array(
+                'lines' => array(),
+                'attributes' => 'notAnArray'
+            )
+        );
+    }
+
+    /**
+     * Make a protected method public using the Reflection API
+     *
+     * @param string $className The full name of the class incl. namespace
+     * @return \ReflectionMethod The now public method
+     */
+    protected function makeMethodAccessible($className, $methodName) {
+        $method = new \ReflectionMethod($className, $methodName);
+        $method->setAccessible(true);
+        return $method;
     }
 }
