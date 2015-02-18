@@ -119,12 +119,11 @@ abstract class PaymentSlipPdf
      * @param string $elementName The name of the element.
      * @param array $element The element.
      * @return $this The current instance for a fluent interface.
-     * @todo Consider removing the element name
      */
-    protected function writePaymentSlipLines($elementName, $element)
+    protected function writePaymentSlipLines($elementName, array $element)
     {
-        if (!is_array($element)) {
-            throw new \InvalidArgumentException('$element is not an array!');
+        if (!is_string($elementName)) {
+            throw new \InvalidArgumentException('$elementName is not a string!');
         }
         if (!isset($element['lines'])) {
             throw new \InvalidArgumentException('$element contains not "lines" key!');
