@@ -11,7 +11,6 @@
             "ES",
             "PDF"
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0",
         "swiss-payment-slip/swiss-payment-slip": "0.11.1"
