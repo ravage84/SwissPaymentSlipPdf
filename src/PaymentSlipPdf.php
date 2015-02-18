@@ -177,15 +177,14 @@ abstract class PaymentSlipPdf
     /**
      * Create a payment slip as a PDF using the PDF engine
      *
-     * @param bool $withBackground Whether to display the background image.
      * @return $this The current instance for a fluent interface.
      */
-    public function createPaymentSlip($withBackground = true)
+    public function createPaymentSlip()
     {
         $paymentSlip = $this->paymentSlip;
 
         // Place background image
-        if ($withBackground) {
+        if ($paymentSlip->getDisplayBackground()) {
             $this->displayImage($paymentSlip->getSlipBackground());
         }
 
