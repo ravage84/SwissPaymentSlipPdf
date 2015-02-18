@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Remove set minimum-stability ("dev"), get stable version of dependencies
 
 ### Fixed
 
