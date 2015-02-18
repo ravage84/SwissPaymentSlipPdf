@@ -51,19 +51,6 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      * Tests the createPaymentSlip method with a valid payment slip
      *
      * @return void
-     * @covers ::createPaymentSlip
-     */
-    public function testCreatePaymentSlip()
-    {
-        $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar');
-        $slipData = new TestablePaymentSlipData();
-        $paymentSlip = new TestablePaymentSlip($slipData);
-        $paymentSlipPdf->createPaymentSlip($paymentSlip);
-    }
-    /**
-     * Tests the createPaymentSlip method with a valid payment slip
-     *
-     * @return void
      * @expectedException \PHPUnit_Framework_Error
      * @expectedExceptionMessage Argument 1 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::createPaymentSlip() must be an instance of SwissPaymentSlip\SwissPaymentSlip\PaymentSlip, instance of stdClass given
      * @covers ::createPaymentSlip
@@ -72,5 +59,61 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     {
         $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar');
         $paymentSlipPdf->createPaymentSlip((object)'NotAPaymentSlip');
+    }
+
+    /**
+     * Tests the createPaymentSlip method with a valid payment slip
+     *
+     * @return void
+     * @covers ::createPaymentSlip
+     */
+    public function testCreatePaymentSlip()
+    {
+        $paymentSlipPdf = $this->getMock(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            array('writePaymentSlipLines', 'displayImage'),
+            array((object)'FooBar')
+        );
+
+        // Setup expectations
+        $paymentSlipPdf->expects($this->exactly(12))
+            ->method('writePaymentSlipLines')
+            ->will($this->returnSelf());
+        $paymentSlipPdf->expects($this->once())
+            ->method('displayImage')
+            ->will($this->returnSelf());
+
+        $slipData = new TestablePaymentSlipData();
+        $paymentSlip = new TestablePaymentSlip($slipData);
+        $paymentSlipPdf->createPaymentSlip($paymentSlip);
+    }
+
+    /**
+     * Tests the writePaymentSlipLines method
+     *
+     * @return void
+     * @covers ::writePaymentSlipLines
+     */
+    public function testWritePaymentSlipLines()
+    {
+        $paymentSlipPdf = $this->getMock(
+            'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
+            array('setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'),
+            array((object)'FooBar')
+        );
+
+        // Setup expectations
+        $paymentSlipPdf->expects($this->exactly(12))
+            ->method('setFont');
+        $paymentSlipPdf->expects($this->exactly(0))
+            ->method('setBackground');
+        $paymentSlipPdf->expects($this->exactly(26))
+            ->method('setPosition');
+        $paymentSlipPdf->expects($this->exactly(26))
+            ->method('createCell');
+
+        $slipData = new TestablePaymentSlipData();
+        $paymentSlip = new TestablePaymentSlip($slipData);
+        $paymentSlipPdf->createPaymentSlip($paymentSlip);
     }
 }
