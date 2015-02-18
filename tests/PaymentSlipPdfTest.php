@@ -346,6 +346,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      * Make a protected method public using the Reflection API
      *
      * @param string $className The full name of the class incl. namespace
+     * @param string $methodName The name of the method to make accessible.
      * @return \ReflectionMethod The now public method
      */
     protected function makeMethodAccessible($className, $methodName) {
