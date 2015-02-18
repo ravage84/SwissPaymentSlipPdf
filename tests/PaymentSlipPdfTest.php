@@ -57,6 +57,9 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructorInvalidPaymentSlip()
     {
+        if (defined('HHVM_VERSION')) {
+            $this->markTestSkipped('This test fails on HHVM due to error message varieties');
+        }
         $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar');
         $paymentSlipPdf->createPaymentSlip((object)'NotAPaymentSlip');
     }
@@ -237,6 +240,12 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      */
     public function testWritePaymentSlipLinesInvalidSecondParameter()
     {
+        if (version_compare(phpversion(), '5.4.0', '<')) {
+            $this->markTestSkipped('This test fails on PHP 5.3 due to error message varieties');
+        }
+        if (defined('HHVM_VERSION')) {
+            $this->markTestSkipped('This test fails on HHVM due to error message varieties');
+        }
         $method = $this->makeMethodAccessible(
             'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
             'writePaymentSlipLines'
