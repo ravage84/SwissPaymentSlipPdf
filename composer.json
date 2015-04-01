@@ -4,12 +4,12 @@
     "license": "MIT",
     "homepage": "https://github.com/ravage84/SwissPaymentSlipPdf",
     "keywords": [
-            "Payment slip",
-            "Inpayment slip",
-            "Einzahlungsschein",
-            "ESR",
-            "ES",
-            "PDF"
+        "Payment slip",
+        "Inpayment slip",
+        "Einzahlungsschein",
+        "ESR",
+        "ES",
+        "PDF"
     ],
     "require": {
         "php": ">=5.3.0",
@@ -40,9 +40,9 @@
         }
     ],
     "support": {
-            "email": "ravage@bluewin.ch",
-            "issues": "https://github.com/ravage84/SwissPaymentSlipPdf/issues",
-            "source": "https://github.com/ravage84/SwissPaymentSlipPdf"
+        "email": "ravage@bluewin.ch",
+        "issues": "https://github.com/ravage84/SwissPaymentSlipPdf/issues",
+        "source": "https://github.com/ravage84/SwissPaymentSlipPdf"
     },
     "autoload": {
         "psr-4": {

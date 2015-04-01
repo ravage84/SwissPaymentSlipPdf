@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove set minimum-stability ("dev"), get stable version of dependencies
 
 ### Fixed
+- Minor fixes (CS & doc blocks)
 
 ## [0.13.1](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.13.1) - 2015-02-18
 ### Changed
