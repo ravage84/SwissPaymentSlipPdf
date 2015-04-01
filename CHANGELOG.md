@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Relaxed version of swiss-payment-slip/swiss-payment-slip dependency to 0.11.*
 - Remove set minimum-stability ("dev"), get stable version of dependencies
 
 ### Fixed
