@@ -32,7 +32,7 @@ Installation
 
 ### Requirements
 
-- PHP 5.3.x+
+- PHP 5.4.x+
 - [SwissPaymentSlip](https://github.com/ravage84/SwissPaymentSlip/) (automatically installed by Composer)
 
 ### Composer

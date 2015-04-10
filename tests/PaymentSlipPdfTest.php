@@ -74,15 +74,15 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     {
         $paymentSlipPdf = $this->getMock(
             'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
-            array('writePaymentSlipLines', 'displayImage'),
-            array((object)'FooBar')
+            ['writePaymentSlipLines', 'displayImage'],
+            [(object)'FooBar']
         );
 
         // $paymentSLip property should not be set
         $this->assertAttributeEquals(null, 'paymentSlip', $paymentSlipPdf);
 
         // Setup expectations
-        $expectedElements = array(
+        $expectedElements = [
             'bankLeft',
             'bankRight',
             'recipientLeft',
@@ -95,7 +95,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
             'amountCentsRight',
             'payerLeft',
             'payerRight',
-        );
+        ];
         foreach ($expectedElements as $elementNr => $elementName) {
             $paymentSlipPdf->expects($this->at($elementNr + 1))
                 ->method('writePaymentSlipLines')
@@ -129,8 +129,8 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     {
         $paymentSlipPdf = $this->getMock(
             'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
-            array('writePaymentSlipLines', 'displayImage'),
-            array((object)'FooBar')
+            ['writePaymentSlipLines', 'displayImage'],
+            [(object)'FooBar']
         );
 
         // Setup expectations
@@ -158,8 +158,8 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     {
         $paymentSlipPdf = $this->getMock(
             'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
-            array('setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'),
-            array((object)'FooBar')
+            ['setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'],
+            [(object)'FooBar']
         );
 
         // Setup expectations
@@ -188,8 +188,8 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
     {
         $paymentSlipPdf = $this->getMock(
             'SwissPaymentSlip\SwissPaymentSlipPdf\Tests\TestablePaymentSlipPdf',
-            array('setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'),
-            array((object)'FooBar')
+            ['setFont', 'setBackground', 'setPosition', 'displayImage', 'createCell'],
+            [(object)'FooBar']
         );
 
         // Setup expectations
@@ -225,8 +225,8 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         );
         $method->invoke(
             $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
-            array(),
-            array()
+            [],
+            []
         );
     }
 
@@ -274,9 +274,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         $method->invoke(
             $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
             'elementName',
-            array(
-                'attributes' => array()
-            )
+            ['attributes' => []]
         );
     }
 
@@ -296,10 +294,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         );
         $method->invoke(
             $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
-            'elementName',
-            array(
-                'lines' => array()
-            )
+            'elementName', ['lines' => []]
         );
     }
 
@@ -319,11 +314,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         );
         $method->invoke(
             $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
-            'elementName',
-            array(
-                'lines' => 'notAnArray',
-                'attributes' => array()
-            )
+            'elementName', ['lines' => 'notAnArray', 'attributes' => []]
         );
     }
 
@@ -344,10 +335,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
         $method->invoke(
             $paymentSlipPdf = new TestablePaymentSlipPdf((object)'FooBar'),
             'elementName',
-            array(
-                'lines' => array(),
-                'attributes' => 'notAnArray'
-            )
+            ['lines' => [], 'attributes' => 'notAnArray']
         );
     }
 
