@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Relaxed version of swiss-payment-slip/swiss-payment-slip dependency to 0.11.*
 - Remove set minimum-stability ("dev"), get stable version of dependencies
 - Changed PHP dependency to  5.4 and higher
+- Changed to short array syntax
 
 ### Fixed
 - Fixed invalid composer dependency name
