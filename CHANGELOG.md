@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Remove set minimum-stability ("dev"), get stable version of dependencies
 - Changed PHP dependency to  5.4 and higher
 - Changed to short array syntax
+- Updated phpunit/phpunit development dependency to version ^4.0.0
 
 ### Fixed
 - Fixed invalid composer dependency name

@@ -16,7 +16,7 @@
         "swiss-payment-slip/swiss-payment-slip": "0.11.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.38",
+        "phpunit/phpunit": "^4.0.0",
         "squizlabs/php_codesniffer": "2.1.*"
     },
     "authors": [
