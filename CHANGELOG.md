@@ -2,7 +2,14 @@
 All notable changes to this project are documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.13.1...master)
+## [Unreleased](https://github.com/ravage84/SwissPaymentSlipPdf/compare/0.14.0...master)
+### Added
+
+### Changed
+
+### Fixed
+
+## [0.14.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.14.0) - 2015-06-15
 ### Added
 - Added testing with PHP 7.0 to Travis, allow failures
 - "composer test" command executing phpunit
