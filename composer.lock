@@ -4,28 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5851846e49bcd34b519ec4e3586550a2",
+    "hash": "117197a5f89d80cfa3be6d2d851dbead",
     "packages": [
         {
             "name": "swiss-payment-slip/swiss-payment-slip",
-            "version": "0.11.1",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ravage84/SwissPaymentSlip.git",
-                "reference": "a30d5b62db1a8f7048e63302bf639f64a4e9790a"
+                "reference": "d567e18900a888a607899fa3d55818f02c009c15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/a30d5b62db1a8f7048e63302bf639f64a4e9790a",
-                "reference": "a30d5b62db1a8f7048e63302bf639f64a4e9790a",
+                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/d567e18900a888a607899fa3d55818f02c009c15",
+                "reference": "d567e18900a888a607899fa3d55818f02c009c15",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.38",
-                "squizlabs/php_codesniffer": "2.1.*"
+                "phpunit/phpunit": "^4.0.0",
+                "squizlabs/php_codesniffer": "^2.1.0"
             },
             "type": "library",
             "autoload": {
@@ -65,7 +65,7 @@
                 "Payment slip",
                 "es"
             ],
-            "time": "2015-02-18 19:51:56"
+            "time": "2015-06-15 17:45:17"
         }
     ],
     "packages-dev": [

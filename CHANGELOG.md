@@ -10,7 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - "composer fix-checkstyle" command executing phpcbf
 
 ### Changed
-- Relaxed version of swiss-payment-slip/swiss-payment-slip dependency to 0.11.*
+- Updated version of swiss-payment-slip/swiss-payment-slip dependency to a more relaxed ^0.12.0
 - Remove set minimum-stability ("dev"), get stable version of dependencies
 - Changed PHP dependency to  5.4 and higher
 - Changed to short array syntax
