@@ -51,7 +51,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      * Tests the createPaymentSlip method with a valid payment slip
      *
      * @return void
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \TypeError
      * @expectedExceptionMessage Argument 1 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::createPaymentSlip() must be an instance of SwissPaymentSlip\SwissPaymentSlip\PaymentSlip, instance of stdClass given
      * @covers ::createPaymentSlip
      */
@@ -234,7 +234,7 @@ class PaymentSlipTest extends \PHPUnit_Framework_TestCase
      * Tests the writePaymentSlipLines method with an invalid second parameter
      *
      * @return void
-     * @expectedException \PHPUnit_Framework_Error
+     * @expectedException \TypeError
      * @expectedExceptionMessage Argument 2 passed to SwissPaymentSlip\SwissPaymentSlipPdf\PaymentSlipPdf::writePaymentSlipLines() must be of the type array, string given
      * @covers ::writePaymentSlipLines
      */
