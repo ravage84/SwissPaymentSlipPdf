@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "swiss-payment-slip/swiss-payment-slip": "^0.12.0"
+        "swiss-payment-slip/swiss-payment-slip": "^0.13.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.0.0",

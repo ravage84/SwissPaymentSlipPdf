@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
+- Updated swiss-payment-slip/swiss-payment-slip to 0.13.0
 
 ### Fixed
 

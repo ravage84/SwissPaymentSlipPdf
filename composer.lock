@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "117197a5f89d80cfa3be6d2d851dbead",
+    "content-hash": "fa46235477f34344949f5848ffe10a3f",
     "packages": [
         {
             "name": "swiss-payment-slip/swiss-payment-slip",
-            "version": "0.12.0",
+            "version": "0.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ravage84/SwissPaymentSlip.git",
-                "reference": "d567e18900a888a607899fa3d55818f02c009c15"
+                "reference": "3f5e23552e59ff486318c3af66b0374fa61a176f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/d567e18900a888a607899fa3d55818f02c009c15",
-                "reference": "d567e18900a888a607899fa3d55818f02c009c15",
+                "url": "https://api.github.com/repos/ravage84/SwissPaymentSlip/zipball/3f5e23552e59ff486318c3af66b0374fa61a176f",
+                "reference": "3f5e23552e59ff486318c3af66b0374fa61a176f",
                 "shasum": ""
             },
             "require": {
@@ -56,16 +56,15 @@
                     "role": "Lead developer"
                 }
             ],
-            "description": "A library for creating Swiss payment slips",
+            "description": "A library for creating Swiss payment slips (ESR)",
             "homepage": "https://github.com/ravage84/SwissPaymentSlip",
             "keywords": [
                 "ESR",
                 "Einzahlungsschein",
                 "Inpayment slip",
-                "Payment slip",
-                "es"
+                "Payment slip"
             ],
-            "time": "2015-06-15 17:45:17"
+            "time": "2019-02-27T15:06:58+00:00"
         }
     ],
     "packages-dev": [
@@ -121,7 +120,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -170,7 +169,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2015-02-03 12:10:50"
+            "time": "2015-02-03T12:10:50+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -230,7 +229,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-04-27 22:15:08"
+            "time": "2015-04-27T22:15:08+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -292,7 +291,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-06-09 13:05:42"
+            "time": "2015-06-09T13:05:42+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -339,7 +338,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2015-04-02 05:19:05"
+            "time": "2015-04-02T05:19:05+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -383,7 +382,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2014-01-30 17:20:04"
+            "time": "2014-01-30T17:20:04+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -424,7 +423,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2015-06-13 07:35:30"
+            "time": "2015-06-13T07:35:30+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -473,7 +472,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-06-12 07:34:24"
+            "time": "2015-06-12T07:34:24+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -545,7 +544,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-06-11 16:20:25"
+            "time": "2015-06-11T16:20:25+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -600,7 +599,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-06-11 15:55:48"
+            "time": "2015-06-11T15:55:48+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -664,7 +663,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2015-01-29 16:28:08"
+            "time": "2015-01-29T16:28:08+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -716,7 +715,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-02-22 15:13:53"
+            "time": "2015-02-22T15:13:53+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -766,7 +765,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2015-01-01 10:01:08"
+            "time": "2015-01-01T10:01:08+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -832,7 +831,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-01-27 07:23:06"
+            "time": "2015-01-27T07:23:06+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -883,7 +882,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2014-10-06 09:23:50"
+            "time": "2014-10-06T09:23:50+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -936,7 +935,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-01-24 09:48:32"
+            "time": "2015-01-24T09:48:32+00:00"
         },
         {
             "name": "sebastian/version",
@@ -971,7 +970,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-02-24 06:35:25"
+            "time": "2015-02-24T06:35:25+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -1045,7 +1044,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-04-28 23:28:20"
+            "time": "2015-04-28T23:28:20+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1094,7 +1093,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-06-10 15:30:22"
+            "time": "2015-06-10T15:30:22+00:00"
         }
     ],
     "aliases": [],
