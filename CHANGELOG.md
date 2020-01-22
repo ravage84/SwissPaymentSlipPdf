@@ -6,9 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 ### Changed
-- Updated swiss-payment-slip/swiss-payment-slip to 0.13.0
 
 ### Fixed
+
+## [0.15.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.15.0) - 2020-01-22
+### Changed
+- Updated swiss-payment-slip/swiss-payment-slip to 0.13.0
 
 ## [0.14.0](https://github.com/ravage84/SwissPaymentSlipPdf/releases/tag/0.14.0) - 2015-06-15
 ### Added
